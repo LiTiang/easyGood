@@ -1,0 +1,12 @@
+build/
+bin/
+src/main/webapp/resources/test/runner/node_modules/
+src/main/webapp/WEB-INF/
+src/main/resources/
+src/main/java/
+.settings
+.classpath
+.project
+.gradle
+
+
