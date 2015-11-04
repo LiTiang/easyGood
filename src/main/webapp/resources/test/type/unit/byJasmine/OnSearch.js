@@ -23,7 +23,7 @@ var basePathPropertyOfKarmaConfig = 'base';
         });    
     });
 
-    describe('getSearchStringWrapperTag method', function() {
+    describe('test getSearchStringWrapperTag method', function() {
 
         it('- getting < input id=searchBox >', function() {
 
@@ -32,7 +32,7 @@ var basePathPropertyOfKarmaConfig = 'base';
         });
     });
 
-    describe('getFormattedSearchString func', function() {
+    describe('test getFormattedSearchString method', function() {
         
         it('- correct reformatted usr request', function() {
             
@@ -43,7 +43,7 @@ var basePathPropertyOfKarmaConfig = 'base';
         });
     });
 
-    describe('searchFailForInvalidSearchString func', function() {
+    describe('test searchFailForInvalidSearchString method', function() {
 
         it('- usr input is invalid', function() {
 
@@ -54,9 +54,9 @@ var basePathPropertyOfKarmaConfig = 'base';
         });
     });
 
-    describe('searchInStock', function() {
+    describe('test searchInStock method', function() {
 
-        it('if usr input is valid', function() {
+        it('- usr input is valid', function() {
             var flag;
             var spy;
 
