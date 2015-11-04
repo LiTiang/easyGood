@@ -1,0 +1,10 @@
+.gradle
+build/
+bin/
+src/main/webapp/resources/test/runner/node_modules/
+.settings
+.classpath
+.project
+
+
+
