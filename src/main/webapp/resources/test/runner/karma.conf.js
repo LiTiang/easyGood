@@ -37,12 +37,13 @@ module.exports = function(config) {
       // dependencies
       'js/framework/jquery/dist/jquery.min.js',
       'test/helper/jasmine-jquery.js',
+      'test/helper/Jasmine-Matchers-2.0.0-beta2/dist/jasmine-matchers.js',
 
       // code u want to test
       'js/model.js',
 
       // test code
-      'test/type/unit/byJasmine/OnSearch.js'
+      'test/type/unit/byJasmine/*.js',
     ],
 
 
