@@ -16,8 +16,7 @@ var requests = [];
         requests = [];
         this.xhr.restore();
         
-        this.easyGoodApp = null;
-        this.fetchDataByRefer = null;          
+        this.easyGoodApp = null;        this.fetchDataByRefer = null;          
     });
 
     describe('function will return promise', function() {

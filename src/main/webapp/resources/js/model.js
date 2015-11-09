@@ -2,8 +2,11 @@ var easyGood = (function() {
 
 		var testingAPI = {
 
-			OnSearch : OnSearch,
-			fetchDataByRefer : fetchDataByRefer,		
+			OnSearch         : OnSearch,
+			fetchDataByRefer : fetchDataByRefer,
+			checkingResponse    : checkingResponse, 
+			presentResponse  : presentResponse		
+
 		};
 		
 		var config = Object.assign({
@@ -11,9 +14,12 @@ var easyGood = (function() {
 			init: function(config) {
 
 				var pressSearchBtn = new OnSearch("#searchBtn");
+				var checkResponse  = new checkingResponse();
 
 				$(document).on("pressSearchBtn", function(event, formattedUsrRequest) {
-				   		fetchDataByRefer(formattedUsrRequest).then(loadItem);
+				   		fetchDataByRefer(formattedUsrRequest)
+				   		.then(checkResponse)
+				   		.then(presentResponse);
 				});
 			}
 
@@ -22,8 +28,24 @@ var easyGood = (function() {
     return config;
 }());
 
-	function loadItem() {
+	function checkingResponse(resp) {
+		this.resp = arguments[0];
 	}
+
+			checkingResponse.prototype.isResponseFormatCorrectly = function() {
+				return true;
+			};
+
+			checkingResponse.prototype.respNonexistHandler = function() {
+				if (!this.resp) {
+					$("input#searchBox").val("Zero Stock!");
+				}
+			};
+
+	function presentResponse() {
+		$("tbody .partnumber:first-child").text(1);
+	}
+
 
 	function fetchDataByRefer(request) {
 
@@ -36,12 +58,7 @@ var easyGood = (function() {
 							data : JSON.stringify(request),
 							method : 'POST'
 						})
-						.pipe( function(resp) {
-							if (!resp) {
-								$("input#searchBox").val("Zero Stock!");
-								return;
-							}
-							return resp;
+						.pipe( function(resp){ return resp;
 						});
 	}
 
